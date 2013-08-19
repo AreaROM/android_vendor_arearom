@@ -4,7 +4,7 @@ PRODUCT_COPY_FILES += \
 
 # GSM SPN overrides list
 PRODUCT_COPY_FILES += \
-    vendor/arearom/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
+    vendor/arearom/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # SIM Toolkit
 PRODUCT_PACKAGES += \
