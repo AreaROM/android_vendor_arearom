@@ -1,15 +1,8 @@
 # Inherit common CM stuff
-$(call inherit-product, vendor/cyanogen/products/common.mk)
-
-# CyanogenMod specific product packages
-PRODUCT_PACKAGES += \
-    CMWallpapers
+$(call inherit-product, vendor/arearom/products/common.mk)
 
 # Bring in all audio files
 include frameworks/base/data/sounds/AllAudio.mk
-
-# Include extra dictionaries for LatinIME
-PRODUCT_PACKAGE_OVERLAYS += vendor/cyanogen/overlay/dictionaries
 
 # Default Ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
