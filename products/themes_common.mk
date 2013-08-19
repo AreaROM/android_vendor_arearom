@@ -5,5 +5,5 @@ PRODUCT_PACKAGES += \
        #com.tmobile.themes
 
 PRODUCT_COPY_FILES += \
-       vendor/arearom/prebuilt/common/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
+       vendor/arearom/prebuilt/etc/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
 
