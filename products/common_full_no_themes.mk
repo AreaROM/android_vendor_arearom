@@ -2,7 +2,7 @@
 $(call inherit-product, vendor/arearom/products/common.mk)
 
 # Bring in all audio files
-include frameworks/base/data/sounds/AllAudio.mk
+#include frameworks/base/data/sounds/AllAudio.mk
 
 # Default Ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
