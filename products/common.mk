@@ -11,7 +11,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 # T-Mobile theme engine
-include vendor/cyanogen/products/themes_common.mk
+include vendor/arearom/products/themes_common.mk
 
 # Required, keyboard
 PRODUCT_PACKAGES += LatinIME
