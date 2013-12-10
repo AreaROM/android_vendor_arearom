@@ -16,3 +16,8 @@ include vendor/arearom/products/themes_common.mk
 # Required, keyboard
 PRODUCT_PACKAGES += LatinIME
 
+AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.arearom.version=$(AR_VERSION) \
+    ro.modversion=$(AR_VERSION)

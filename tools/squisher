@@ -36,6 +36,7 @@ if [ ! -f "$OTAPACKAGE" ]; then
 fi
 
 OPTICHARGER=$ANDROID_BUILD_TOP/vendor/arearom/tools/opticharger
+UPDATE=$ANDROID_BUILD_TOP/vendor/arearom/prebuilt/update-binary
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
@@ -78,8 +79,13 @@ rm -rf $REPACK/ota/recovery
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.arearom\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
-OUTFILE=$OUT/arearom-$MODVERSION.zip
+OUTFILE=$OUT/$TARGET_PRODUCT-$MODVERSION.zip
 echo MODVERSION: $MODVERSION
+
+# Adding a compatible update-binary for new TWRP
+echo 'Adding compatible update-binary'
+cp $UPDATE $REPACK/ota/META-INF/com/google/android/update-binary
+echo 'Done'
 
 # Pack it up and sign
 printf "Zipping package..."
