@@ -13,7 +13,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # T-Mobile theme engine
 include vendor/arearom/products/themes_common.mk
 
-PRODUCT_PACKAGES +=
+PRODUCT_PACKAGES += \
     LatinIME \
     Superuser
 
