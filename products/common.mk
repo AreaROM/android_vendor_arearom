@@ -13,8 +13,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # T-Mobile theme engine
 include vendor/arearom/products/themes_common.mk
 
-# Required, keyboard
-PRODUCT_PACKAGES += LatinIME
+PRODUCT_PACKAGES +=
+    LatinIME \
+    Superuser
 
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
