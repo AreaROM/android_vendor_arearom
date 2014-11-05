@@ -15,7 +15,8 @@ include vendor/arearom/products/themes_common.mk
 
 PRODUCT_PACKAGES += \
     LatinIME \
-    Superuser
+    Superuser \
+    Term
 
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
