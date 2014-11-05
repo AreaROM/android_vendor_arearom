@@ -83,9 +83,9 @@ OUTFILE=$OUT/$TARGET_PRODUCT-$MODVERSION.zip
 echo MODVERSION: $MODVERSION
 
 # Adding a compatible update-binary for new TWRP
-echo 'Adding compatible update-binary'
-cp $UPDATE $REPACK/ota/META-INF/com/google/android/update-binary
-echo 'Done'
+#echo 'Adding compatible update-binary'
+#cp $UPDATE $REPACK/ota/META-INF/com/google/android/update-binary
+#echo 'Done'
 
 # Pack it up and sign
 printf "Zipping package..."
