@@ -1,6 +1,6 @@
 # GSM APN list
 PRODUCT_COPY_FILES += \
-    vendor/arearom/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/arearom/prebuilt/etc/apns-gsm.xml:system/etc/apns-conf.xml
 
 # GSM SPN overrides list
 PRODUCT_COPY_FILES += \
