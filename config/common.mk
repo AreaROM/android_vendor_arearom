@@ -18,6 +18,9 @@ PRODUCT_PACKAGES += \
 # SuperSU updater
 -include vendor/arearom/config/supersu.mk
 
+# Sepolicy
+-include vendor/arearom/sepolicy/sepolicy.mk
+
 # Include More AreaROM stuffs
 -include vendor/arearom/config/common_full.mk
 
