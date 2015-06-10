@@ -18,7 +18,8 @@ PRODUCT_PACKAGES += \
     Superuser \
     Term     \
     screenshot \
-    su
+    su \
+    busybox
 
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
