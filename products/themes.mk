@@ -1,7 +1,8 @@
 # Theme packages
 PRODUCT_PACKAGES += \
        Androidian \
-       Cyanbread
+       Cyanbread \
+       Area51
 
 PRODUCT_PROPERTY_OVERRIDES += \
        persist.sys.themeId = Cyanbread \
