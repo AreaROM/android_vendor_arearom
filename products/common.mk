@@ -17,7 +17,8 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Superuser \
     Term     \
-    screenshot
+    screenshot \
+    su
 
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
