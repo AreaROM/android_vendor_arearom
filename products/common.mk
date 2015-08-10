@@ -10,14 +10,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=MM-dd-yyyy \
     ro.com.android.dataroaming=false
 
-# T-Mobile theme engine
-include vendor/arearom/products/themes_common.mk
-
 PRODUCT_PACKAGES += \
     LatinIME \
     Superuser \
     Term     \
-    screenshot \
     su \
     busybox
 
