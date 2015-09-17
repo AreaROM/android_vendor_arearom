@@ -40,12 +40,18 @@ UPDATE=$ANDROID_BUILD_TOP/vendor/arearom/prebuilt/update-binary
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
+# Determine what to name the new signed package
+MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $OUT/system/build.prop`
+OUTFILE=$OUT/$TARGET_PRODUCT-$MODVERSION.zip
+echo MODVERSION: $MODVERSION
+
+TARGET_FILEBASE_ZIP=`grep 'TARGET_FILEBASE_ZIP := true' device/*/$AREAROM_BUILD/BoardConfig*.mk`
+if [ "$TARGET_FILEBASE_ZIP" ]; then
 REPACK=$OUT/repack.d
 printf "Sanitizing environment..."
 rm -rf $REPACK
 mkdir -p $REPACK
 echo
-
 
 # Unpack the otapackage and opticharge all apks
 mkdir $REPACK/ota
@@ -77,30 +83,31 @@ rm -rf $REPACK/ota/recovery
 [ -d $REPACK/ota/system/lib/modules ] && \
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
-# Determine what to name the new signed package
-MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $REPACK/ota/system/build.prop`
-OUTFILE=$OUT/$TARGET_PRODUCT-$MODVERSION.zip
-echo MODVERSION: $MODVERSION
-
-# Adding a compatible update-binary for new TWRP
-#echo 'Adding compatible update-binary'
-#cp $UPDATE $REPACK/ota/META-INF/com/google/android/update-binary
-#echo 'Done'
-
 # Pack it up and sign
 printf "Zipping package..."
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
 echo
+
 printf "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
 java -Xmx1024m \
-	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
+	-jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE
+
 echo
 printf "Cleaning up..."
 rm -rf $REPACK
 echo
+
+else
+printf "Signing package..."
+SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
+java -Xmx1024m \
+        -jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
+        -w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
+        $OTAPACKAGE $OUTFILE
+fi
 
 # Create a md5 checksum image of the repacked package
 (
