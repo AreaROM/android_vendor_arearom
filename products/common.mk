@@ -17,8 +17,9 @@ PRODUCT_PACKAGES += \
     su \
     busybox
 
+
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.arearom.version= Experimental \
-    ro.modversion=$(AR_VERSION)
+    ro.arearom.version= $(AR_VERSION \
+    ro.modversion=Experimental

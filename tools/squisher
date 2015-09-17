@@ -42,8 +42,8 @@ DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $OUT/system/build.prop`
-OUTFILE=$OUT/$TARGET_PRODUCT-$MODVERSION.zip
-echo MODVERSION: $MODVERSION
+OUTFILE=$OUT/$TARGET_PRODUCT-$AR_VERSION.zip
+echo 'AreaROM Version: $AR_VERSION'
 
 TARGET_FILEBASE_ZIP=`grep 'TARGET_FILEBASE_ZIP := true' device/*/$AREAROM_BUILD/BoardConfig*.mk`
 if [ "$TARGET_FILEBASE_ZIP" ]; then
