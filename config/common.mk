@@ -17,6 +17,8 @@ PRODUCT_PACKAGES += \
     su \
     busybox
 
+# SuperSU updater
+-include vendor/arearom/config/supersu.mk
 
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
