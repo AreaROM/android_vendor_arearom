@@ -18,6 +18,9 @@ PRODUCT_PACKAGES += \
 # SuperSU updater
 -include vendor/arearom/config/supersu.mk
 
+# Include More AreaROM stuffs
+-include vendor/arearom/config/common_full.mk
+
 AR_VERSION=$(PLATFORM_VERSION)-$(shell date -u +%Y%m%d) 
 
 PRODUCT_PROPERTY_OVERRIDES += \
