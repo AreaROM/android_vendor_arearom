@@ -12,9 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     LatinIME \
-    Superuser \
-    Term     \
-    su \
+    Terminal     \
     busybox
 
 # SuperSU updater
