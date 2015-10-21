@@ -13,7 +13,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     LatinIME \
     Terminal     \
-    busybox
+    busybox \
+    KernelAdiutor
+
+# Signature validation check (credit: Cyanogenmod)
+PRODUCT_COPY_FILES += \
+    vendor/arearom/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
 # SuperSU updater
 -include vendor/arearom/config/supersu.mk
